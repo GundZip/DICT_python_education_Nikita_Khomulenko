@@ -20,3 +20,5 @@ if a == word:
     print("You survive!")
 else:
     print("You lose!")
+#3-rd stage completed
+
