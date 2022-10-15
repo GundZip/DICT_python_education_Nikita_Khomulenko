@@ -2,24 +2,26 @@ import random
 
 print("HANGMAN")
 print("The game will be available soon.")
-# 1-st stage completed
-WORLDS = ["python","java","php","javascript"]
+WORLDS = ["python", "java", "php", "javascript"]
 word = random.choice(WORLDS)
-a = input("Guess the word :\n"">")
-while True:
-    if a == word:
-        print("You survived")
-        break
+remember_letters = []
+all_letters = list(set(word))
+words=''.join([i if i in remember_letters else "_"for i in word])
+print(words)
+life = 8
+while life > 0:
+    letter=input("input a letter:")
+    if letter in word and letter not in remember_letters:
+        remember_letters.append(letter)
+        all_letters.remove(letter)
     else:
-        print("You lost")
-    break
-# 2/3-nd stage completed
-lenght = '_' * len(word)
-a = input("Guess the word :" + word [:3] + "-".join([''for _ in range (len(word)-3)])+ "-\n>")
-if a == word:
-    print("You survive!")
-else:
-    print("You lose!")
-#4-th stage completed
+        life-=1
+    words = ''.join([i if i in remember_letters else "_" for i in word])
+    print(words)
+    if len(all_letters) == 0:
+        break
+print("thanks for playing\nWe'll see how well you did in the next stage")
+#5-th stage completed
+
 
 
