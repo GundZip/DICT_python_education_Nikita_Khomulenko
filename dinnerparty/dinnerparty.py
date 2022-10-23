@@ -9,11 +9,13 @@ print ('Enter the name of every friend (including you), each on a new line')
 for _ in range(amount):
     name = input(">")
     transactions[name] = 0
+#1-st stage completed
 price = int(input('Enter the totat amount:\n'))
 a = round(price/amount, 2)
 for name in transactions:
     transactions[name] = a
 print(transactions)
+#2-nd stage completed
 
 YoR = {'yes': True, 'no': False}
 
@@ -23,4 +25,7 @@ l_name = '_'
 if lucky:
     l_name = random.choice(list(transactions.keys()))
     print(l_name, "is lucky today!")
+else:
+    print('No one is going to be lucky')
+# 3-rd stage completed
 
