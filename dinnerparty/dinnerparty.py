@@ -13,10 +13,10 @@ for _ in range(amount):
 cost = int(input('Enter the totat amount:\n'))
 #2-nd stage completed
 
-YoR = {'yes': True, 'no': False}
+YoN = {'yes': True, 'no': False}
 
 print('Do you want to use "who is lucky?" feature\n type yes/no')
-lucky = YoR[input('>').lower()]
+lucky = YoN[input('>').lower()]
 l_name = '_'
 if lucky:
     l_name = random.choice(list(transactions.keys()))
