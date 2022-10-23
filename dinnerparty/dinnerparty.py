@@ -10,11 +10,7 @@ for _ in range(amount):
     name = input(">")
     transactions[name] = 0
 #1-st stage completed
-price = int(input('Enter the totat amount:\n'))
-a = round(price/amount, 2)
-for name in transactions:
-    transactions[name] = a
-print(transactions)
+cost = int(input('Enter the totat amount:\n'))
 #2-nd stage completed
 
 YoR = {'yes': True, 'no': False}
@@ -28,4 +24,14 @@ if lucky:
 else:
     print('No one is going to be lucky')
 # 3-rd stage completed
+
+all_price  = round(cost / (amount - int(lucky)), 2)
+for t in transactions.keys():
+    transactions[t] = all_price
+if lucky:
+    transactions[l_name] = 0
+print(transactions)
+print('End DinnerParty')
+#Final stage
+
 
