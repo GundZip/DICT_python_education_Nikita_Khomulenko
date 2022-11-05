@@ -1,9 +1,11 @@
 
+print("Hello user")
+print("In a CoffeeMachine = 1000-water , 540-milk , 120-coffee , 9-cups")
 class CoffeeMachine:
-    water = 400
+    water = 1000
     milk = 540
     coffee = 120
-    grn = 550
+    grn = 1100
     cups = 9
     status ="wait"
     counter = 0
@@ -15,7 +17,7 @@ class CoffeeMachine:
             print("Sorry, not enough coffee!")
         elif salf.milk < n_milk:
             print("Sorry, not enough milk!")
-        elif salf.cups < 1:
+        elif salf.grn < 1:
             print("Sorry, not enough disposable cups!")
         else:
             print("I have enough resources, making you a coffee!")
@@ -42,12 +44,18 @@ class CoffeeMachine:
             print(f"{self.cups} of disposable cups")
             print(f"{self.grn} of money")
         elif self.status == "make":
-            type_of_coffee = int(command)
-            if type_of_coffee == 1:
+            try:
+                type = int(command)
+            except:
+                type == 4
+            if type == 4:
+                self.status = "wait"
+                return
+            if type == 1:
                 self.m_coffee(4, 250, 16)
-            elif type_of_coffee == 2:
+            elif type == 2:
                 self.m_coffee(7, 350, 20, 75)
-            elif type_of_coffee == 3:
+            elif type == 3:
                 self.m_coffee(6, 200, 10, 100)
             self.status = "wait"
         elif self.status == "fill":
@@ -72,7 +80,7 @@ while True:
     action = input("Write action (buy, fill, take, remaining, exit):\n>")
     coffee_machine.action(action)
     if action == "buy":
-        type_of_coffee = input("What do you want to buy? 1 - espresso, 2 - latte, 3 - cappuccino:\n>")
+        type_of_coffee = input("What do you want to buy?  1- espresso, 2 - latte, 3 - cappuccino , 4 - back to menu :\n>")
         coffee_machine.action(type_of_coffee)
     elif action == "fill":
         water = input("Write how many ml of water you want to add:\n>")
@@ -85,3 +93,4 @@ while True:
         coffee_machine.action(cups)
     elif action == "exit":
         break
+
