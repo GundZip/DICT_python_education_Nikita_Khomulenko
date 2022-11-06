@@ -1,31 +1,14 @@
 
 print("Hello user")
-print("In a CoffeeMachine = 1000-water , 540-milk , 120-coffee , 9-cups")
-class CoffeeMachine:
+print("In a Machine = 1000-water , 540-milk , 120-coffee , 9-cups")
+class Machine:
+    grn = 1100
     water = 1000
     milk = 540
     coffee = 120
-    grn = 1100
     cups = 9
-    status ="wait"
     counter = 0
-
-    def m_coffee(salf, t_grn, n_water, n_coffee, n_milk = 0):
-        if salf.water < n_water:
-            print("Sorry, not enough water!")
-        elif salf.coffee < n_coffee:
-            print("Sorry, not enough coffee!")
-        elif salf.milk < n_milk:
-            print("Sorry, not enough milk!")
-        elif salf.grn < 1:
-            print("Sorry, not enough disposable cups!")
-        else:
-            print("I have enough resources, making you a coffee!")
-            salf.water -= n_water
-            salf.coffee -= n_coffee
-            salf.milk -= n_milk
-            salf.cups -= 1
-            salf.grn += t_grn
+    status = "wait"
 
     def action(self, command):
         if command == "buy":
@@ -52,11 +35,11 @@ class CoffeeMachine:
                 self.status = "wait"
                 return
             if type == 1:
-                self.m_coffee(4, 250, 16)
+                self.m_coffee(4, 250, 16) #espresso
             elif type == 2:
-                self.m_coffee(7, 350, 20, 75)
+                self.m_coffee(7, 350, 20, 75) #latte
             elif type == 3:
-                self.m_coffee(6, 200, 10, 100)
+                self.m_coffee(6, 200, 10, 100) #cappuccino
             self.status = "wait"
         elif self.status == "fill":
             v = int(command)
@@ -73,14 +56,32 @@ class CoffeeMachine:
             self.counter += 1
         else:
             self.status = "wait"
+    def m_coffee(salf, t_grn, n_water, n_coffee, n_milk = 0):
+        if salf.water < n_water:
+            print("Sorry, not enough water!")
+        elif salf.coffee < n_coffee:
+            print("Sorry, not enough coffee!")
+        elif salf.grn < 1:
+            print("Sorry, not enough disposable cups!")
+        elif salf.milk < n_milk:
+            print("Sorry, not enough milk!")
+
+        else:
+            print("I have enough resources, making you a coffee!")
+            salf.water -= n_water
+            salf.coffee -= n_coffee
+            salf.milk -= n_milk
+            salf.cups -= 1
+            salf.grn += t_grn
 
 
-coffee_machine = CoffeeMachine()
+coffee_machine = Machine()
 while True:
     action = input("Write action (buy, fill, take, remaining, exit):\n>")
     coffee_machine.action(action)
     if action == "buy":
-        type_of_coffee = input("What do you want to buy?  1- espresso, 2 - latte, 3 - cappuccino , 4 - back to menu :\n>")
+        type_of_coffee = input("What do you want to buy?  1- espresso, 2 - latte, 3 - cappuccino , 4 - back for menu "
+                               ":\n>")
         coffee_machine.action(type_of_coffee)
     elif action == "fill":
         water = input("Write how many ml of water you want to add:\n>")
@@ -92,5 +93,9 @@ while True:
         cups = input("Write how many disposable coffee cups you want to add:\n>")
         coffee_machine.action(cups)
     elif action == "exit":
+
         break
+print("Have a nice day!")
+
+
 
