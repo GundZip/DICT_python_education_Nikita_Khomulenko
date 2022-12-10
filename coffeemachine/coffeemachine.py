@@ -51,18 +51,18 @@ class Machine:
                 self.milk += v
             elif self.counter == 3:
                 self.cups += v
+            elif self.counter == 4:
+                self.grn += v
                 self.status = "wait"
                 self.counter = -1
             self.counter += 1
         else:
             self.status = "wait"
-    def m_coffee(salf, t_grn, n_water, n_coffee, n_milk = 0):
+    def m_coffee(salf, take_grn, n_water, n_coffee, n_milk = 0):
         if salf.water < n_water:
             print("Sorry, not enough water!")
         elif salf.coffee < n_coffee:
             print("Sorry, not enough coffee!")
-        elif salf.grn < 1:
-            print("Sorry, not enough disposable cups!")
         elif salf.milk < n_milk:
             print("Sorry, not enough milk!")
 
@@ -72,7 +72,7 @@ class Machine:
             salf.coffee -= n_coffee
             salf.milk -= n_milk
             salf.cups -= 1
-            salf.grn += t_grn
+            salf.grn += take_grn
 
 
 coffee_machine = Machine()
@@ -92,6 +92,8 @@ while True:
         coffee_machine.action(coffee)
         cups = input("Write how many disposable coffee cups you want to add:\n>")
         coffee_machine.action(cups)
+        grn = input("Write how many money you want to add:\n>")
+        coffee_machine.action(grn)
     elif action == "exit":
 
         break
