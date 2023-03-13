@@ -1,0 +1,33 @@
+--------------------------------------------------------------------------------------------------------------------------------------
+wins = {'rock': ['scissors', 'tree', 'wolf', 'sponge', 'fire'],
+         'gun': ['rock', 'tree', 'wolf', 'sponge', 'fire', 'scissors'],
+         'lightning': ['gun', 'rock', 'tree', 'wolf', 'sponge', 'fire'],
+         'devil': ['lightning', 'gun', 'rock', 'tree', 'wolf', 'sponge'],
+         'dragon': ['devil', 'lightning', 'gun', 'rock', 'tree', 'wolf'],
+         'water': ['dragon', 'devil', 'lightning', 'gun', 'rock', 'tree'],
+         'air': ['water', 'dragon', 'devil', 'lightning', 'gun', 'rock'],
+         'paper': ['air', 'water', 'dragon', 'devil', 'lightning', 'gun'],
+         'sponge': ['paper', 'air', 'water', 'dragon', 'devil', 'lightning'],
+         'wolf': ['sponge', 'paper', 'air', 'water', 'dragon', 'devil'],
+         'tree': ['wolf', 'sponge', 'paper', 'air', 'water', 'dragon'],
+         'human': ['tree', 'wolf', 'sponge', 'paper', 'air', 'water'],
+         'snake': ['human', 'tree', 'wolf', 'sponge', 'paper', 'air'],
+         'scissors': ['snake', 'human', 'tree', 'wolf', 'sponge', 'paper'],
+         'fire': ['scissors', 'snake', 'human', 'tree', 'wolf', 'sponge']}
+--------------------------------------------------------------------------------------------------------------------------------------------
+loses = {'rock': ['gun', 'lightning', 'devil', 'dragon', 'water', 'air', 'paper', 'sponge', 'wolf', 'tree', 'human', 'snake', 'scissors'],
+         'gun': ['lightning', 'devil', 'dragon', 'water', 'air', 'paper', 'sponge', 'wolf', 'tree', 'human', 'snake', 'scissors', 'fire'],
+         'lightning': ['devil', 'dragon', 'water', 'air', 'paper', 'sponge', 'wolf', 'tree', 'human', 'snake', 'scissors', 'fire', 'rock'],
+         'devil': ['dragon', 'water', 'air', 'paper', 'sponge', 'wolf', 'tree', 'human', 'snake', 'scissors', 'fire', 'rock', 'gun'],
+         'dragon': ['water', 'air', 'paper', 'sponge', 'wolf', 'tree', 'human', 'snake', 'scissors', 'fire', 'rock', 'gun', 'lightning'],
+         'water': ['air', 'paper', 'sponge', 'wolf', 'tree', 'human', 'snake', 'scissors', 'fire', 'rock', 'gun', 'lightning', 'devil'],
+         'air': ['paper', 'sponge', 'wolf', 'tree', 'human', 'snake', 'scissors', 'fire', 'rock', 'gun', 'lightning', 'devil', 'dragon'],
+         'paper': ['sponge', 'wolf', 'tree', 'human', 'snake', 'scissors', 'fire', 'rock', 'gun', 'lightning', 'devil', 'dragon', 'water'],
+         'sponge': ['wolf', 'tree', 'human', 'snake', 'scissors', 'fire', 'rock', 'gun', 'lightning', 'devil', 'dragon', 'water', 'air'],
+         'wolf': ['tree', 'human', 'snake', 'scissors', 'fire', 'rock', 'gun', 'lightning', 'devil', 'dragon', 'water', 'air', 'paper'],
+         'tree': ['human', 'snake', 'scissors', 'fire', 'rock', 'gun', 'lightning', 'devil', 'dragon', 'water', 'air', 'paper', 'sponge'],
+         'human': ['snake', 'scissors', 'fire', 'rock', 'gun', 'lightning', 'devil', 'dragon', 'water', 'air', 'paper', 'sponge', 'wolf'],
+         'snake': ['scissors', 'fire', 'rock', 'gun', 'lightning', 'devil', 'dragon', 'water', 'air', 'paper', 'sponge', 'wolf', 'tree'],
+         'scissors': ['fire', 'rock', 'gun', 'lightning', 'devil', 'dragon', 'water', 'air', 'paper', 'sponge', 'wolf', 'tree', 'human'],
+         'fire': ['rock', 'gun', 'lightning', 'devil', 'dragon', 'water', 'air', 'paper', 'sponge', 'wolf', 'tree', 'human', 'snake']}
+------------------------------------------------------------------------------------------------
