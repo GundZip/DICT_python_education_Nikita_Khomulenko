@@ -1,28 +1,53 @@
 import random
-
 print ("Welcome \n" \
-       " Power by Stell! \n"
-       "Select one: rock, paper, scissors ")
+       " Power by Stell! ")
 
-options = ["rock", "paper", "scissors"]
+user_name = input("Enter your name: ")
+print("Hello, " + user_name)
+
+user_score = 0
+with open('rating.txt', 'r') as f:
+    for line in f:
+        name, score = line.strip().split()
+        if name == user_name:
+            user_score = int(score)
+            break
+
+print("Okay, let's start \n"
+      "Select one choice : rock, paper, scissors and !help")
 
 while True:
-    user_input = input("Enter your move: ")
 
-    if user_input == "exit":
+    user_choice = input()
+    if user_choice == "!exit":
         print("Bye!")
         break
+    if user_choice == '!help':
+         print("Available commands: ")
+         print("!exit - quit the game")
+         print("!rating - show your rating")
+         continue
 
-    if user_input in options:
-        computer_move = random.choice(options)
-        if user_input == 'rock' and computer_move == 'paper' or \
-                user_input == 'paper' and computer_move == 'scissors' or \
-                user_input == 'scissors' and computer_move == 'rock':
-            print(f"Lose -> Sorry, but the computer chose {computer_move}")
-        elif user_input == computer_move:
-            print(f"Draw -> There is a draw ({computer_move})")
+    elif user_choice == "!rating":
+        print("Your rating:", user_score)
+
+    elif user_choice in ["rock", "paper", "scissors"]:
+        options = ["rock", "paper", "scissors"]
+        computer_choice = random.choice(options)
+        if user_choice == computer_choice:
+            print(f"There is a draw ({computer_choice})")
+            user_score += 50
+
+        elif (user_choice == "rock" and computer_choice == "scissors" or
+              user_choice == "scissors" and computer_choice == "paper" or
+              user_choice == "paper" and computer_choice == "rock"):
+            print(f"Well done. The computer chose {computer_choice} and failed")
+            user_score += 100
         else:
-            print(f"Win -> Well done. The computer chose {computer_move} and failed")
+            print(f"Sorry, but the computer chose {computer_choice}")
     else:
         print("Invalid input")
+
+    print("Your rating:",user_score)
+
 print("Have a nice day!")
