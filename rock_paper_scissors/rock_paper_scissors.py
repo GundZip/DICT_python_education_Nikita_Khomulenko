@@ -6,20 +6,23 @@ print ("Welcome \n" \
 
 options = ["rock", "paper", "scissors"]
 
-user_choice = input()
+while True:
+    user_input = input("Enter your move: ")
 
-computer_choice = random.choice(options)
+    if user_input == "exit":
+        print("Bye!")
+        break
 
-print("Computer chose", computer_choice)
-
-if user_choice == computer_choice:
-    print("There is a draw!")
-elif user_choice == "rock" and computer_choice == "scissors":
-    print("You win!")
-elif user_choice == "paper" and computer_choice == "rock":
-    print("You win!")
-elif user_choice == "scissors" and computer_choice == "paper":
-    print("You win!")
-else:
-    print("Computer wins!")
+    if user_input in options:
+        computer_move = random.choice(options)
+        if user_input == 'rock' and computer_move == 'paper' or \
+                user_input == 'paper' and computer_move == 'scissors' or \
+                user_input == 'scissors' and computer_move == 'rock':
+            print(f"Lose -> Sorry, but the computer chose {computer_move}")
+        elif user_input == computer_move:
+            print(f"Draw -> There is a draw ({computer_move})")
+        else:
+            print(f"Win -> Well done. The computer chose {computer_move} and failed")
+    else:
+        print("Invalid input")
 print("Have a nice day!")
