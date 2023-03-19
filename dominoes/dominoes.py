@@ -1,31 +1,23 @@
-import random
 
-domino_set = [(i, j) for i in range(7) for j in range(i, 7)]
+print("="*70)
+print(" "*30 + "SNAKE BONES GAME")
+print("="*70)
 
-random.shuffle(domino_set)
-player_pieces = domino_set[:7]
-computer_pieces = domino_set[7:14]
-stock_pieces = domino_set[14:]
 
-domino_snake = None
-for piece in domino_set[::-1]:
-    if piece[0] == piece[1]:
-        domino_snake = piece
-        break
-if domino_snake is None:
-    random.shuffle(domino_set)
-    player_pieces = domino_set[:7]
-    computer_pieces = domino_set[7:14]
-    stock_pieces = domino_set[14:]
-    domino_snake = stock_pieces.pop()
+stock_size = 20
+computer_pieces = 0
+print("Stock size:", stock_size)
+print("Computer pieces:", computer_pieces)
 
-if domino_snake[0] > domino_snake[1]:
-    status = "computer"
-else:
-    status = "player"
+snake = ["*"]
+player_pieces = ["1", "2", "3", "4", "5"]
+print("Snake:", " ".join(snake))
+print("Your pieces:")
+for i, piece in enumerate(player_pieces):
+    print(i+1, "-", piece)
 
-print(f"Stock pieces: {len(stock_pieces)} кістянок в резерві")
-print(f"Computer pieces: {len(computer_pieces)} кістянок")
-print(f"Player pieces: {len(player_pieces)} кістянок")
-print(f"Domino snake: {domino_snake} стартова кісточка")
-print(f"Status: гравець {status} ходить першим")
+status = "computer"
+if status == "computer":
+    print("Status: Computer is about to make a move. Press Enter to continue...")
+elif status == "player":
+    print("Status: It's your turn to make a move. Enter your command.")
