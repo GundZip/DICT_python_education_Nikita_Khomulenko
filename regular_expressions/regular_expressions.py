@@ -1,19 +1,17 @@
-def match_char(regular_exp, string):
-    if regular_exp == '':
-        return True
-    elif string == '':
+def compare_strings(input_str):
+    input_list = input_str.split('|')
+    if len(input_list) != 2:
         return False
-    elif regular_exp == '.':
-        return True
-    else:
-        return regular_exp == string
+    left, right = input_list
+    if len(left) != len(right):
+        return False
+    for i in range(len(left)):
+        if left[i] != '.' and left[i] != right[i]:
+            return False
+    return True
 
-print(match_char('a', 'a'))  # True
-print(match_char('.', 'a'))  # True
-print(match_char('', 'a'))  # False
-print(match_char('a', ''))  # False
-print(match_char('', ''))  # True
-print(match_char('|', ''))  # True
-print(match_char('|', 'a'))  # True
-print(match_char('a|a', 'a'))  # True
-print(match_char('.|a', 'b'))  # False
+print(compare_strings('apple|apple'))  # True
+print(compare_strings('.pple|apple'))  # True
+print(compare_strings('appl.|apple'))  # True
+print(compare_strings('.....|apple'))  # True
+print(compare_strings('peach|apple'))  # False
